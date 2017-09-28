@@ -49,7 +49,10 @@ class Newworld_Walker_Nav_Primary extends Walker_Nav_menu {
 		$item_output = $args->before;
 		$item_output .= '<a' . $attributes . '>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-		$item_output .= ( $depth == 0 && $args->walker->has_children ) ? ' <b class="caret"></b></a>' : '</a>';
+		//sledeci red je zakomentarisan ako ne želimo bootstrapov caret jer koristim supefish-ov
+		//a red iza je dodat i obrnuto treba da se uradi ako se želi bootstrapov caret
+		//$item_output .= ( $depth == 0 && $args->walker->has_children ) ? ' <b class="caret"></b></a>' : '</a>';
+		$item_output .= '</a>';
 		$item_output .= $args->after;
 		
 		$output .= apply_filters ( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );

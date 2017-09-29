@@ -4,6 +4,8 @@
     include get_template_directory() . '/inc/theme-customizer.php';
     include get_template_directory() . '/inc/customizer/slider-section.php';
     include get_template_directory() . '/inc/customizer/text-controls-section.php';
+    require get_template_directory() . '/inc/customizer/sanitization.php';
+
 
 
     //require_once get_template_directory() . '/inc/wp-bootstrap-navwalker.php';

@@ -1,39 +1,49 @@
 <?php
+
     function newworld_slider_section_customize($wp_customize){
         //SETTINGS
 
         //Slide 1
         $wp_customize->add_setting('slider_slide1_image', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_image'
         ));
         $wp_customize->add_setting('slider_slide1_title', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_title_text'
         ));
         $wp_customize->add_setting('slider_slide1_text', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_slide_text'
         ));
         $wp_customize->add_setting('slider_slide1_button_text', array(
-            'default'=>'Link'
+            'default'=>'Link',
+            'sanitize_callback'=>'check_button_text'
         ));
         $wp_customize->add_setting('slider_slide1_button_link', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_url'
         ));
 
         //Slide 2
         $wp_customize->add_setting('slider_slide2_image', array(
-            'default'=>''
+            'default'=>'',
         ));
         $wp_customize->add_setting('slider_slide2_title', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_title_text'
         ));
         $wp_customize->add_setting('slider_slide2_text', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_slide_text'
         ));
         $wp_customize->add_setting('slider_slide2_button_text', array(
-            'default'=>'Link'
+            'default'=>'Link',
+            'sanitize_callback'=>'check_button_text'
         ));
         $wp_customize->add_setting('slider_slide2_button_link', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_url'
         ));
 
         //Slide 3
@@ -41,16 +51,20 @@
             'default'=>''
         ));
         $wp_customize->add_setting('slider_slide3_title', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_title_text'
         ));
         $wp_customize->add_setting('slider_slide3_text', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_slide_text'
         ));
         $wp_customize->add_setting('slider_slide3_button_text', array(
-            'default'=>'Link'
+            'default'=>'Link',
+            'sanitize_callback'=>'check_button_text'
         ));
         $wp_customize->add_setting('slider_slide3_button_link', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_url'
         ));
 
         //Slide 4
@@ -58,16 +72,20 @@
             'default'=>''
         ));
         $wp_customize->add_setting('slider_slide4_title', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_title_text'
         ));
         $wp_customize->add_setting('slider_slide4_text', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_slide_text'
         ));
         $wp_customize->add_setting('slider_slide4_button_text', array(
-            'default'=>'Link'
+            'default'=>'Link',
+            'sanitize_callback'=>'check_button_text'
         ));
         $wp_customize->add_setting('slider_slide4_button_link', array(
-            'default'=>''
+            'default'=>'',
+            'sanitize_callback'=>'check_url'
         ));
 
         //SECTIONS

@@ -5,5 +5,5 @@
 <script src="<?php echo get_template_directory_uri();?>/app/js/App.bundled.js"></script>
 <script src="<?php echo get_template_directory_uri();?>/app/js/main.js"></script>
 
-
+<?php wp_footer(); ?>
 </body>

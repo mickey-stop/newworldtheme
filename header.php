@@ -19,7 +19,14 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class( ); ?>>
-					<h1><?php bloginfo('name'); ?></h1>
+					<h1 id="blog-title"><?php bloginfo('name'); ?>
+					<br>
+					<?php echo 'Hello '.get_theme_mod('textsection_input_text'); ?>
+					<br>
+					<p class="selected-color">
+					<?php echo get_theme_mod('textsection_select'); ?>
+					</p>
+					</h1>
 					<?php get_template_part('template-parts/bootstrap-nav'); ?>
 <section class="slider">
 	<?php 

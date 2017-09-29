@@ -98,3 +98,6 @@ a {
     padding: 10px 15px 10px 40px; }
   .navbar-nav .open .dropdown-menu ul.depth_1 > li > a {
     padding-left: 80px; } }
+
+#blog-title {
+  padding-top: 100px; }

@@ -27,6 +27,7 @@
 					<?php echo get_theme_mod('textsection_select'); ?>
 					</p>
 					</h1>
+					<?php echo get_theme_mod('slider_slide1_image'); ?>
 					<?php get_template_part('template-parts/bootstrap-nav'); ?>
 <section class="slider">
 	<?php 

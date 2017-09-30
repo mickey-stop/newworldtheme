@@ -35,7 +35,7 @@
 	 * The array includes image mime types that are included in wp_get_mime_types()
 	 */
     $mimes = array(
-        //'jpg|jpeg|jpe' => 'image/jpeg',
+        'jpg|jpeg|jpe' => 'image/jpeg',
         'gif'          => 'image/gif',
         /*'png'          => 'image/png',
         'bmp'          => 'image/bmp',
@@ -45,7 +45,11 @@
 	// Return an array with file extension and mime_type.
     $file = wp_check_filetype( $image, $mimes );
 	// If $image has a valid mime_type, return it; otherwise, return the default.
-    return ( $file['ext'] ? $image : $setting->default );
+    //return ( $file['ext'] ? $image : $setting->default );
+    if(!$file['ext']){
+        return new WP_Error( 'invalid_value', __( 'Image must be in jpg format.' ) );
+    }
+    return $image;
 }
 ?>
 

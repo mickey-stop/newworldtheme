@@ -2,9 +2,117 @@
 
     function newworld_slider_section_customize($wp_customize){
         //SETTINGS
+        
+        function create_settings($slide, $wp_custom){
+            $wp_custom->add_setting('slider_slide'.$slide.'_image', array(
+                'default'=>'',
+                'sanitize_callback'=>'check_image'
+            ));
+            $wp_custom->add_setting('slider_slide'.$slide.'_title', array(
+                'default'=>'',
+                'sanitize_callback'=>'check_title_text'
+            ));
+            $wp_custom->add_setting('slider_slide'.$slide.'_text', array(
+                'default'=>'',
+                'sanitize_callback'=>'check_slide_text'
+            ));
+            $wp_custom->add_setting('slider_slide'.$slide.'_button_text', array(
+                'default'=>'Link',
+                'sanitize_callback'=>'check_button_text'
+            ));
+            $wp_custom->add_setting('slider_slide'.$slide.'_button_link', array(
+                'default'=>'',
+                'sanitize_callback'=>'check_url'
+            ));
+        }
+        
+        function create_sections($slide, $wp_custom){
+            $wp_custom->add_section('slider'.$slide.'_section',array(
+                'title'=>'Slide '.$slide,
+                'panel'=>'newworld_slider_panel'
+            ));
+        }
+
+        function create_controls($slide, $wp_custom){
+            //Slide title
+            $wp_custom->add_control(
+                new WP_Customize_Control(
+                    $wp_custom,
+                    'slider_slide'.$slide.'_title',
+                    array(
+                        'label'          => 'Enter slide title',
+                        'section'        => 'slider'.$slide.'_section',
+                        'settings'       => 'slider_slide'.$slide.'_title',
+                        'type'           => 'text',
+                    )
+                )
+            );
+            //Slide text box
+            $wp_custom->add_control(
+                new WP_Customize_Control(
+                    $wp_custom,
+                    'slider_slide'.$slide.'_text',
+                    array(
+                        'label'          => 'Enter slide text',
+                        'section'        => 'slider'.$slide.'_section',
+                        'settings'       => 'slider_slide'.$slide.'_text',
+                        'type'           => 'textarea',
+                    )
+                )
+            );
+            //Slide button text
+            $wp_custom->add_control(
+                new WP_Customize_Control(
+                    $wp_custom,
+                    'slider_slide'.$slide.'_button_text',
+                    array(
+                        'label'          => 'Enter button text',
+                        'section'        => 'slider'.$slide.'_section',
+                        'settings'       => 'slider_slide'.$slide.'_button_text',
+                        'type'           => 'text',
+                    )
+                )
+            );
+            //Slide button link
+            $wp_custom->add_control(
+                new WP_Customize_Control(
+                    $wp_custom,
+                    'slider_slide'.$slide.'_button_link',
+                    array(
+                        'label'          => 'Enter link',
+                        'section'        => 'slider'.$slide.'_section',
+                        'settings'       => 'slider_slide'.$slide.'_button_link',
+                        'type'           => 'text',
+                    )
+                )
+            );
+            //Image uploader
+            $wp_custom->add_control( 
+                new WP_Customize_Image_Control( 
+                    $wp_custom, 
+                    'slider_slide'.$slide.'_image', 
+                    array(
+                        'label'      => 'Upload or choose image',
+                        'description'=> "Recommended size of picture is 1366x768px",
+                        'section'    => 'slider'.$slide.'_section',
+                        'settings'   => 'slider_slide'.$slide.'_image'
+                    ) 
+                ) 
+            );
+        }
+        for($slide=1;$slide<5;$slide++){
+            create_settings($slide, $wp_customize);
+            create_sections($slide, $wp_customize);
+            create_controls($slide, $wp_customize);
+        }
+
+
+        //OLD VERSION OF CREATION SETTINGS, SECTIONS AND COTROLS FOR EACH SLIDE SEPARATELY WITHOUT LOOP
+
+        //SETTINGS
 
         //Slide 1
-        $wp_customize->add_setting('slider_slide1_image', array(
+        /*$wp_customize->add_setting('slider_slide1_image', array(
             'default'=>'',
             'sanitize_callback'=>'check_image'
         ));
@@ -89,7 +197,7 @@
         ));
 
         //SECTIONS
-
+        
         //Section 1
         $wp_customize->add_section('slider1_section', array(
             'title'=>'Slide 1',
@@ -387,7 +495,7 @@
 		            'settings'   => 'slider_slide4_image'
 	            ) 
             ) 
-        );
+        );*/
         //End of controls
 
     }

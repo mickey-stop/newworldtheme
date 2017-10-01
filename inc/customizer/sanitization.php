@@ -29,27 +29,34 @@
     }
 
     function check_image( $image, $setting ) {
-	/*
-	 * Array of valid image file types.
-	 *
-	 * The array includes image mime types that are included in wp_get_mime_types()
-	 */
-    $mimes = array(
-        'jpg|jpeg|jpe' => 'image/jpeg',
-        'gif'          => 'image/gif',
-        /*'png'          => 'image/png',
-        'bmp'          => 'image/bmp',
-        'tif|tiff'     => 'image/tiff',
-        'ico'          => 'image/x-icon'*/
-    );
-	// Return an array with file extension and mime_type.
-    $file = wp_check_filetype( $image, $mimes );
-	// If $image has a valid mime_type, return it; otherwise, return the default.
-    //return ( $file['ext'] ? $image : $setting->default );
-    if(!$file['ext']){
-        return new WP_Error( 'invalid_value', __( 'Image must be in jpg format.' ) );
+        /*
+        * Array of valid image file types.
+        *
+        * The array includes image mime types that are included in wp_get_mime_types()
+        */
+        $mimes = array(
+            'jpg|jpeg|jpe' => 'image/jpeg',
+            'gif'          => 'image/gif',
+            /*'png'          => 'image/png',
+            'bmp'          => 'image/bmp',
+            'tif|tiff'     => 'image/tiff',
+            'ico'          => 'image/x-icon'*/
+        );
+        // Return an array with file extension and mime_type.
+        $file = wp_check_filetype( $image, $mimes );
+        // If $image has a valid mime_type, return it; otherwise, return the default.
+        //return ( $file['ext'] ? $image : $setting->default );
+        if(!$file['ext']){
+            return new WP_Error( 'invalid_value', __( 'Image must be in jpg format.' ) );
+        }
+        return $image;
     }
-    return $image;
-}
+
+    function check_number($value){
+        if(!(is_int(intval($value))&&$value>1&&$value<8)){
+            return new WP_Error( 'invalid_value', __( 'You must enter number between 1 and 8!' ) );
+        }
+        return $value;
+    }
 ?>
 

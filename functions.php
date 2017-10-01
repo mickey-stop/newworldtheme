@@ -2,6 +2,7 @@
     require get_template_directory() . '/inc/theme-support.php';
     require get_template_directory() . '/inc/walker.php';
     include get_template_directory() . '/inc/theme-customizer.php';
+    include get_template_directory() . '/inc/customizer/general-options.php';
     include get_template_directory() . '/inc/customizer/slider-section.php';
     include get_template_directory() . '/inc/customizer/text-controls-section.php';
     require get_template_directory() . '/inc/customizer/sanitization.php';

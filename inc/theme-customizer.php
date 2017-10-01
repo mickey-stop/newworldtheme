@@ -4,6 +4,9 @@
         //created slider section
         newworld_slider_section_customize($wp_customize);
 
+        //functions for general settings of newworld theme
+        newworld_general_options_customize($wp_customize);
+
         //created text controls (experimental)
         newworld_textcontrols_section_customize($wp_customize);
 

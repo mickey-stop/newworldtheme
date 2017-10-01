@@ -28,6 +28,10 @@
 					</p>
 					</h1>
 					<?php echo get_theme_mod('slider_slide1_image'); ?>
+					<br>
+					<?php var_dump(intval(get_theme_mod('slider_numbers'))); ?>
+
+					<!--Nav Menu-->
 					<?php get_template_part('template-parts/bootstrap-nav'); ?>
 <section class="slider">
 	<?php 

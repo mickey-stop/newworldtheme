@@ -1,7 +1,9 @@
 <?php
 
     function newworld_slider_section_customize($wp_customize){
-        //SETTINGS
+        //OBRATITI PAŽNJU DA SAM PRI DEFINISANJU FUNKCIJA KAO PARAMETAR KORISTIO
+        //PROMENLJIVU $WP_CUSTOM KOJOJ SAM PRI POZIVU FUNKCIJA DODELJIVAO
+        //$WP_CUSTOMIZE OBJEKAT
         
         function create_settings($slide, $wp_custom){
             $wp_custom->add_setting('slider_slide'.$slide.'_image', array(
@@ -100,12 +102,13 @@
                 ) 
             );
         }
-        for($slide=1;$slide<5;$slide++){
+        
+        $num_slides=intval(get_theme_mod('slider_numbers'));
+        for($slide=1;$slide<$num_slides;$slide++){
             create_settings($slide, $wp_customize);
             create_sections($slide, $wp_customize);
             create_controls($slide, $wp_customize);
         }
-
 
         //OLD VERSION OF CREATION SETTINGS, SECTIONS AND COTROLS FOR EACH SLIDE SEPARATELY WITHOUT LOOP
 

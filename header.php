@@ -35,8 +35,9 @@
 					<?php get_template_part('template-parts/bootstrap-nav'); ?>
 <section class="slider">
 	<?php 
-		if(get_theme_mod('slider_slide1')){
+		get_template_part('template-parts/slider');
+		/*if(get_theme_mod('slider_slide1')){
 			echo '<img src='.get_theme_mod("slider_slide1").'>';
-		}
+		}*/
 	?>
 </section>		
